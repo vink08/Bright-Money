@@ -66,11 +66,12 @@ export const billsReducer = (state = initialState, action) => {
       return {
         ...state,
         bills: state.bills.map((bill) =>
-          bill.id === action.payload.id ? action.payload : bill
+          bill.id === action.payload.id ? action.payload : bill,
+        alert("Updated")
         ),
       };
     case DELETE_BILL:
-      return { ...state, bills: state.bills.filter((bill) => bill.id !== action.payload) };
+      return { ...state, bills: state.bills.filter((bill) => bill.id !== action.payload,alert("Deleted")) };
     case FILTER_BILLS:
       return { ...state, filteredCategory: action.payload };
     case SET_HIGHLIGHTED_BILLS:
